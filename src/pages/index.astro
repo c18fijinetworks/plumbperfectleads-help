@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'PlumbPerfect Leads - Automated Plumbing Lead Generation',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+  
+  <Hero2
+    tagline="Stop Chasing Leads. Let Leads Come To You."
+    title=`<span class="text-accent dark:text-white">24/7 Lead Qualification for Plumbers</span>`
+    subtitle="Automate your appointment scheduling and focus on what you do best – plumbing. PlumbPerfect Leads captures, qualifies, and books jobs, even while you sleep."
+    actions={[
+      { variant: 'primary', text: 'Claim Your Lifetime Deal - $99', href: '/pricing/' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{ src: '/images/testimonial-1.webp', alt: 'Happy client in a modern hair salon' }}
+  />
+  
+  <Features
+    class="-mt-16"
+    id="features"
+    title="Features Built for Plumbing Professionals"
+    subtitle="PlumbPerfect Leads isn&#39;t just a chatbot; it&#39;s a dedicated receptionist tailored to the unique needs of plumbing businesses."
+    columns={2}
+    items={[
+        { title: 'Instant Lead Capture', description: 'Capture leads the moment they reach out – 24/7. No more missed calls or lost opportunities.', icon: 'tabler:armchair' },
+        { title: 'Intelligent Qualification', description: 'Our AI-powered chatbot asks qualifying questions to ensure you only receive high-potential leads.', icon: 'tabler:cut' },
+        { title: 'Automated Scheduling', description: 'Seamlessly integrate with your calendar to automatically book appointments, eliminating phone tag.', icon: 'tabler:armchair' },
+        { title: 'Detailed Lead Reporting', description: 'Track lead sources, conversion rates, and appointment details with our comprehensive reporting dashboard.', icon: 'tabler:cut' },
+    ]}
+  />
+
+  <Content
+    class="-mt-16"
+    items={[
+        { title: 'The Cost of Missed Calls', description: 'Every missed call is a potential lost job. PlumbPerfect Leads ensures you never miss an opportunity to grow your business.' },
+        { title: 'Focus on Your Expertise', description: 'Stop wasting time on administrative tasks. Let our chatbot handle the initial contact and scheduling, so you can focus on providing excellent plumbing services.' },
+    ]}
+    image={{ src: '/images/testimonial-2.webp', alt: 'Stylist working on a client' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span class="text-accent dark:text-white">Why Plumbers Need Automated Lead Handling</span></span>
+      </h3>
+    </Fragment>
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple, Transparent Pricing</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'Is PlumbPerfect Leads easy to set up?', description: 'Absolutely! We offer a simple, guided setup process. Our support team is also available to assist you every step of the way.', icon: 'tabler:scissors' },
+        { title: 'What if the chatbot can&#39;t answer a question?', description: 'The chatbot is designed to handle common plumbing inquiries. For complex questions, it seamlessly transfers the lead to you via text or call.', icon: 'tabler:scissors' },
+        { title: 'Does PlumbPerfect Leads integrate with my existing calendar?', description: 'Yes! We integrate with popular calendar platforms like Google Calendar, Outlook Calendar, and more.', icon: 'tabler:scissors' },
+        { title: 'What kind of reporting is available?', description: 'You&#39;ll receive detailed reports on lead sources, conversion rates, appointment bookings, and chatbot performance.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+<Steps2
+    class="-mt-16"
+    title="Stop Missing Leads. Start Growing Your Business."
+    subtitle="Request a demo today and see PlumbPerfect Leads in action."
+    callToAction={{ text: 'Contact us', href: '/contact/' }}
+    image={{ src: '/images/testimonial-3.webp', alt: 'PlumbPerfect Leads Alt3' }}
+  />
+</Layout>

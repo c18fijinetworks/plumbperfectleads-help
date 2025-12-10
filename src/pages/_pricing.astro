@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'PlumbPerfect Leads Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Choose the Plan That&#39;s Right for Your Business" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Flexible plans to fit your needs and budget.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'Is PlumbPerfect Leads easy to set up?', description: 'Absolutely! We offer a simple, guided setup process. Our support team is also available to assist you every step of the way.', icon: 'tabler:scissors' },
+        { title: 'What if the chatbot can&#39;t answer a question?', description: 'The chatbot is designed to handle common plumbing inquiries. For complex questions, it seamlessly transfers the lead to you via text or call.', icon: 'tabler:scissors' },
+        { title: 'Does PlumbPerfect Leads integrate with my existing calendar?', description: 'Yes! We integrate with popular calendar platforms like Google Calendar, Outlook Calendar, and more.', icon: 'tabler:scissors' },
+        { title: 'What kind of reporting is available?', description: 'You&#39;ll receive detailed reports on lead sources, conversion rates, appointment bookings, and chatbot performance.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <CallToAction
+    title="Ready to Get Started?"
+    subtitle="Sign up for a free trial today and see how PlumbPerfect Leads can transform your lead generation process."
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>

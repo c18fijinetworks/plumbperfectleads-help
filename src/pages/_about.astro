@@ -1,0 +1,44 @@
+---
+import heroImage from '~/assets/images/testimonial-4.webp';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About PlumbPerfect Leads',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About PlumbPerfect Leads"
+    image={{ src: heroImage, alt: 'About SaasName' }}
+  >
+    <Fragment slot="title">
+      About PlumbPerfect Leads<br />
+      <span class="text-accent dark:text-white">Dedicated to Helping Plumbers Thrive</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      We understand the challenges plumbers face in generating and managing leads. PlumbPerfect Leads was created to provide a simple, effective solution that helps plumbing businesses grow.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Core Values"
+    subtitle="We are committed to providing exceptional value and support to our customers."
+    items={[
+      { title: 'Reliability', description: 'You can count on PlumbPerfect Leads to be available 24/7, capturing and qualifying leads around the clock.' },
+      { title: 'Innovation', description: 'We continuously improve our AI-powered chatbot to provide the most accurate and efficient lead handling experience.' },
+      { title: 'Customer Focus', description: 'Your success is our priority. We are dedicated to providing exceptional customer support and helping you achieve your business goals.' },
+    ]}
+  />
+  
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple, Transparent Pricing</span>`}
+    prices={[lifetimeDeal]}
+  />
+</Layout>
